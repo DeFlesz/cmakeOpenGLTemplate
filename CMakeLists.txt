@@ -7,12 +7,21 @@ set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 add_subdirectory(extern/glfw)
+add_subdirectory(extern/glad)
 
 add_executable(
     cmakeGL
     src/main.cpp
 )
 
-target_include_directories(cmakeGL PUBLIC extern/glfw/include)
-target_link_directories(cmakeGL PRIVATE extern/glfw/src)
-target_link_libraries(cmakeGL glfw)
+target_include_directories(cmakeGL 
+    PUBLIC extern/glfw/include
+    PUBLIC extern/glad/include
+)
+
+target_link_directories(cmakeGL
+    PRIVATE extern/glfw/src
+    PRIVATE extern/glad/src
+)
+
+target_link_libraries(cmakeGL glfw glad)
