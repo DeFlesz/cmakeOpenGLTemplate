@@ -1,4 +1,6 @@
 #include <iostream>
+
+#include <glm/glm.hpp>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -41,6 +43,9 @@ int main()
     glClear(GL_COLOR_BUFFER_BIT);
 
     glfwSwapBuffers(window);
+
+    // for testing purposes; 
+    // glm::vec1 testVec;
 
     while (!glfwWindowShouldClose(window))
     {
